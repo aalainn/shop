@@ -14,7 +14,7 @@ const actions = {
     getProductItems ({ commit }) {
         axios.get('/api/products')
             .then((resp) => {
-                console.log('product data: ', resp)
+                // console.log('product data: ', resp);
                 commit('UPDATE_PRODUCT_ITEMS', resp.data);
             })
     }
