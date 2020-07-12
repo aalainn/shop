@@ -25,9 +25,6 @@
         components: {
             ProductItem
         },
-        created() {
-            this.$store.dispatch('getProductItems');
-        },
         computed: {
             productItems() {
                 return this.$store.getters.productItems;

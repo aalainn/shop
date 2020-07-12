@@ -16,7 +16,11 @@
         name: 'App',
         components: {
             NavBar
-        }
+        },
+        created() {
+            this.$store.dispatch('getCartItems');
+            this.$store.dispatch('getProductItems');
+        },
     }
 </script>
 

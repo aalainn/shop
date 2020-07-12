@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import ProductList from "../components/product/ProductList"
+import CartList from "../components/cart/CartList";
+import ProductDetails from "../components/product/ProductDetails";
 
 const routes = [
     {
@@ -14,6 +16,11 @@ const routes = [
         path: '/cart',
         component: CartList
     },
+    {
+        path: '/products/:id',
+        component: ProductDetails,
+        props: true //this enable forwarding prop (:id) automatically to the component ProductDetails
+    }
 ]
 
 export const router = new VueRouter(
