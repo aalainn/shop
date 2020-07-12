@@ -17,7 +17,36 @@ const actions = {
             .then((resp) => {
                 commit('UPDATE_CART_ITEMS', resp.data);
             });
+    },
+    addCartItem ({ commit }, payload) {
+        axios
+            .post('/api/cart', payload)
+            .then((resp) => {
+                commit('UPDATE_CART_ITEMS', resp.data)
+            });
+    },
+    decreaseCartItem ({ commit }, payload) {
+        axios
+            .post('/api/cart/delete', payload)
+            .then((resp) => {
+                commit('UPDATE_CART_ITEMS', resp.data)
+            });
+    },
+    removeAllCartItems ({ commit }) {
+        axios
+            .post('/api/cart/delete/all')
+            .then((resp) => {
+                commit('UPDATE_CART_ITEMS', resp.data)
+            });
+    },
+    removeCartItem ({ commit }, payload) {
+        axios
+            .post('/api/cart/product/delete', payload)
+            .then((resp) => {
+                commit('UPDATE_CART_ITEMS', resp.data)
+            });
     }
+
 }
 
 const getters = {
@@ -26,6 +55,11 @@ const getters = {
         return state.cartItems.reduce((acc, cartItem) => {
             return (cartItem.quantity * cartItem.price) + acc;
         }, 0).toFixed(2);
+    },
+    cartQuantity: state => {
+        return state.cartItems.reduce((acc, cartItem) => {
+            return cartItem.quantity + acc;
+        }, 0);
     }
 }
 

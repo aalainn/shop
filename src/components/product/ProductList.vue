@@ -1,16 +1,18 @@
 <template>
-    <div>
-        <h3 class="text-uppercase">Shop</h3>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3"
+                         v-for="productItem in productItems"
+                         :key="productItem.id"
+                    >
+                        <ProductItem
+                                :productItem="productItem"
+                        />
 
-        <div class="row">
-            <div class="col-3"
-                 v-for="productItem in productItems"
-                 :key="productItem.id"
-            >
-            <ProductItem
-                :productItem="productItem"
-            />
-
+                    </div>
+                </div>
             </div>
         </div>
     </div>

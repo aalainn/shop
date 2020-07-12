@@ -1,24 +1,21 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-        <div class="col-4 p-5">
-            <CartList/>
-        </div>
-        <div class="col-8 p-5">
-            <ProductList/>
-        </div>
-    </div>
+      <div class="row">
+          <div class="col-12">
+              <NavBar/>
+              <router-view></router-view>
+          </div>
+      </div>
   </div>
 </template>
 
 <script>
-    import CartList from "./components/cart/CartList";
-    import ProductList from "./components/product/ProductList";
+    import NavBar from "./components/ui/NavBar";
+
     export default {
         name: 'App',
         components: {
-            CartList,
-            ProductList
+            NavBar
         }
     }
 </script>
@@ -38,4 +35,7 @@
   .color-vue2 {
     color: rgb(65, 184, 131);
   }
+    .pointer {
+        cursor: pointer;
+    }
 </style>

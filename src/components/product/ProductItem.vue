@@ -9,7 +9,11 @@
         <ul class="actions">
             <li><button class="btn bg-vue" data-tip="Anschauen"><i class="fa fa-search"></i></button></li>
             <li><button class="btn bg-vue" data-tip="Merkzettel"><i class="far fa-heart"></i></button></li>
-            <li><button class="btn bg-vue" data-tip="Zum Warenkorb"><i class="fa fa-shopping-cart"></i></button></li>
+            <li><button
+                    class="btn bg-vue"
+                    data-tip="Zum Warenkorb"
+                    @click="addCartItem(productItem)"
+            ><i class="fa fa-shopping-cart"></i></button></li>
         </ul>
         <div
         v-if="getDiscount >= 20"
@@ -37,6 +41,7 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
     export default  {
         name: 'ProductItem',
         props: ['productItem'],
@@ -44,6 +49,12 @@
             getDiscount() {
                 return parseFloat((1-this.productItem.price/this.productItem.origPrice)*100).toFixed(0);
             }
+        },
+        methods: {
+            ...mapActions([
+                'addCartItem',
+                'decreaseCartItem'
+            ])
         }
     }
 </script>

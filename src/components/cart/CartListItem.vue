@@ -17,22 +17,45 @@
         </th>
         <td class="align-middle">
             <strong>{{cartItem.price}} €</strong>
+
+
         </td>
-        <td class="align-middle">
+        <td class="align-middle text-center">
             <strong>{{cartItem.quantity}}</strong>
+            <div>
+                <i
+                        class="fa fa-plus-circle mr-2 pointer"
+                        @click="addCartItem(cartItem)"
+                ></i>
+                <i
+                        class="fa fa-minus-circle pointer"
+                        @click="decreaseCartItem(cartItem)"
+                ></i>
+            </div>
         </td>
         <td class="align-middle">
-            <i class="fa fa-trash"></i>
+            <i
+                    class="fa fa-trash pointer"
+                    @click="removeCartItem(cartItem)"
+            ></i>
         </td>
     </tr>
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
     export default  {
         name: 'CartListItem',
         props: [
             'cartItem'
-        ]
+        ],
+        methods: {
+            ...mapActions([
+                'addCartItem',
+                'decreaseCartItem',
+                'removeCartItem'
+            ]),
+        }
     }
 </script>
 
