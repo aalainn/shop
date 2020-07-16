@@ -1,11 +1,11 @@
 <template>
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="row no-gutters">
                         <div class="col-4">
-                            <img src="https://picsum.photos/400">
+                            <img src="https://picsum.photos/400" class="card-img">
                         </div>
                         <div class="col-8">
                             <div class="card-body">
@@ -13,7 +13,7 @@
                                     {{productItemById.title}}
                                 <button
                                         class="float-right btn bg-vue px-4"
-                                        @click="addToCart(productItem)"
+                                        @click="addToCart(productItemById)"
                                 >
                                     <i class="fa fa-cart-plus mr-3"></i>
                                     {{productItemById.price}}
@@ -45,8 +45,14 @@
         name: 'ProdutDetails',
         props: ['id'],
         computed: {
-            productItem() {
+            productItemById() {
                 return this.$store.getters.productItemById(Number(this.id));
+            }
+        },
+        methods: {
+            addToCart(productItemById) {
+                this.$store.dispatch('addCartItem', productItemById);
+                this.$router.push('/cart');
             }
         }
 

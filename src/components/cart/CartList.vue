@@ -75,6 +75,7 @@
                         </ul>
                         <button
                                 class="btn bg-vue rounded-pill py-2 btn-block"
+
                         >Zur Kasse
                         </button>
                     </div>

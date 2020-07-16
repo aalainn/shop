@@ -7,7 +7,12 @@
                 class="card-img-top"
         >
         <ul class="actions">
-            <li><button class="btn bg-vue" data-tip="Anschauen"><i class="fa fa-search"></i></button></li>
+            <li><router-link
+                    tag="button"
+                    class="btn bg-vue"
+                    data-tip="Anschauen"
+                    :to="'/products/'+productItem.id"
+            ><i class="fa fa-search"></i></router-link></li>
             <li><button class="btn bg-vue" data-tip="Merkzettel"><i class="far fa-heart"></i></button></li>
             <li><button
                     class="btn bg-vue"
