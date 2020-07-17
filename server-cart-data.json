@@ -7,10 +7,10 @@
         "quantity": 2
     },
     {
-        "id": 1,
-        "title": "Die Uhr",
+        "id": 2,
+        "title": "Die Hose",
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.",
-        "price": 139.99,
-        "quantity": 1
+        "price": 79.99,
+        "quantity": 3
     }
 ]

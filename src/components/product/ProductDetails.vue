@@ -1,5 +1,8 @@
 <template>
-    <div class="container mt-4">
+    <div
+            class="container mt-4"
+            v-if="productItemById"
+    >
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -51,8 +54,11 @@
         },
         methods: {
             addToCart(productItemById) {
-                this.$store.dispatch('addCartItem', productItemById);
-                this.$router.push('/cart');
+                this.$store
+                    .dispatch('addCartItem', productItemById)
+                    .then(() => {
+                        this.$router.push('/cart');
+                    });
             }
         }
 
