@@ -11,8 +11,8 @@ const mutations = {
 }
 
 const actions = {
-    getProductItems ({ commit }) {
-        axios.get('/api/products')
+    getProductItems ({ commit }, token) {
+        axios.get(`/api/products?token=${token}`)
             .then((resp) => {
                 // console.log('product data: ', resp);
                 commit('UPDATE_PRODUCT_ITEMS', resp.data);

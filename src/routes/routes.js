@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+import Signin from "../components/auth/Signin";
+
 import ProductList from "../components/product/ProductList"
 import CartList from "../components/cart/CartList";
 import ProductDetails from "../components/product/ProductDetails";
@@ -10,6 +12,10 @@ import Billing from "../components/billing/Billing";
 import NotFound from "../components/errorsite/NotFound";
 
 const routes = [
+    {
+        path: '/login',
+        component: Signin
+    },
     {
         path: '/',
         component: ProductList

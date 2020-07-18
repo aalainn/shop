@@ -11,9 +11,9 @@ const mutations = {
 }
 
 const actions = {
-    getCartItems ({ commit }) {
+    getCartItems ({ commit }, token) {
         axios
-            .get('/api/cart')
+            .get(`/api/cart?token=${token}`)
             .then((resp) => {
                 commit('UPDATE_CART_ITEMS', resp.data);
             });
