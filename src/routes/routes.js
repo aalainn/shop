@@ -7,6 +7,7 @@ import ProductList from "../components/product/ProductList"
 import CartList from "../components/cart/CartList";
 import ProductDetails from "../components/product/ProductDetails";
 import Billing from "../components/billing/Billing";
+import NotFound from "../components/errorsite/NotFound";
 
 const routes = [
     {
@@ -25,6 +26,10 @@ const routes = [
     {
         path: '/billing',
         component: Billing
+    },
+    {
+        path: '*', //if not uri fits then show this site. It has to be at the end of this route list
+        component: NotFound
     }
 ]
 
