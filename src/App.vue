@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import NavBar from "./components/ui/NavBar";
 
     export default {
@@ -19,13 +20,26 @@
         components: {
             NavBar
         },
-        created() {
+        computed: {
+            ...mapGetters([
+                'token'
+            ])
+        },
+        created() { // load data if token is set and user does a reload
             const token = localStorage.getItem('token');
             if (token) {
                 this.$store.dispatch('getCartItems', token);
                 this.$store.dispatch('getProductItems', token);
             }
         },
+        watch: {
+            token() {
+                if(this.token) { //load data if token is set
+                    this.$store.dispatch('getCartItems', this.token);
+                    this.$store.dispatch('getProductItems', this.token);
+                }
+            }
+        }
     }
 </script>
 
