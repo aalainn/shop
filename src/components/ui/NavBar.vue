@@ -9,10 +9,13 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <router-link to="" class="nav-link">
-                        <i class="fa fa-sign-in mr-2"></i>
-                        Login
-                    </router-link>
+                    <a
+                            class="nav-link"
+                            @click="signout"
+                    >
+                        <i class="fa fa-sign-out mr-2"></i>
+                        Logout
+                    </a>
                 </li>
                 <li class="nav-item bg-vue2 ml-4 rounded">
                     <router-link to="/cart" class="nav-link">
@@ -34,6 +37,18 @@
                 'cartTotal',
                 'cartQuantity'
             ])
+        },
+        methods: {
+            signout() {
+                this.$store
+                    .dispatch('signout')
+                    .then(()=> {
+                        this.$router.push('/login');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+            }
         }
     }
 </script>

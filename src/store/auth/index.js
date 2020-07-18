@@ -17,6 +17,13 @@ const actions = {
                 localStorage.setItem('token', resp.data.token);
                 commit('SET_TOKEN', resp.data.token);
             })
+    },
+    signout({commit}) {
+        return new Promise((resolve) => {
+            localStorage.removeItem('token');
+            commit('SET_TOKEN', null);
+            resolve();
+        })
     }
 }
 

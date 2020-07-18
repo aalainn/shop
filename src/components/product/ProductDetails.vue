@@ -46,7 +46,7 @@
 <script>
     export default  {
         name: 'ProdutDetails',
-        props: ['id'],
+        props: ['id'], // must be the same name as in the route params in router.js
         computed: {
             productItemById() {
                 return this.$store.getters.productItemById(Number(this.id));
