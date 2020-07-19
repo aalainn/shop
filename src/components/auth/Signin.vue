@@ -11,9 +11,16 @@
                         </p>
                         <button
                                 class="btn bg-vue px-5 mt-2"
-                                @click="signin">
+                                @click="signin"
+                                v-if="!loading">
                             <i class="fa fa-key mr-2"></i>
                             Einloggen
+                        </button>
+                        <button
+                                class="btn bg-vue px-5 mt-2"
+                                v-if="loading">
+                            <span class="spinner-border spinner-border-sm mr-3"></span>
+                            <span>Bitte warten</span>
                         </button>
                     </div>
                 </div>
@@ -24,8 +31,14 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     export default  {
         name: 'Signin',
+        computed: {
+            ...mapGetters([
+                'loading'
+            ])
+        },
         methods: {
             signin() {
                 this.$store.dispatch('signin')
